@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: #b2d6d1;
+
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+
+            #container {
+                background-color: #fafafa;
+                border: solid;
+                border-color: #fafafa;
+                border-radius: 5px;
+
+                text-align: center;
+            }
+
+            table {
+                margin-left: auto;
+                margin-right: auto;
+                border-spacing: 1em 1em;
+            }
+
+            td {
+                width: 25em;
+                text-align: right;
+            }
+
+            span {
+                float: left;
+            }
+
+            select, input {
+                float: left;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1 style="text-align: center;">Survey Form</h1>
+
+        <div id="container">
+            <p style="margin-top: 2em;"> Let us know how we can improve freeCodeCamp </p>
+
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="name">* Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Enter your name" id="fname"></input> 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td> 
+                            <label for="email">* Email:</label> 
+                        </td>
+                        <td> 
+                            <input type="text" placeholder="Enter your Email" id="email"></input> 
+                        </td>   
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="age">* Age:</label>
+                        </td>
+                        <td>                       
+                            <input id="age" type="number" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Which option best describes your current role?</label>
+                        </td>
+                        <td>
+                            <select>
+                                <option>Student</option>
+                                <option>Worker</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>How likely is that you would recommend freeCodeCamp to a friend?</label>
+                        </td>
+                        <td>
+                            <div style="text-align: left;">
+                                <input type="radio" name="radiochoose"> Definitely </input>
+                                <br>
+                                <input type="radio" name="radiochoose"> Maybe </input>
+                                <br>
+                                <input type="radio" name="radiochoose"> Not Sure </input>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label> What do you like most in FCC:</label></td>
+                        <td>                       
+                            <select>
+                                <option> Select an option </option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Things that should be improved in the future (Check all that apply):</label>
+                        </td>
+                        <td>
+                            <input type="checkbox"> <span> Front-end Projects </span> </input> 
+                            <br>
+                            <input type="checkbox"> <span> Back-end Projects </span> </input> 
+                            <br>
+                            <input type="checkbox"> <span> Data Visualization </span> </input>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </body>
+</html>
