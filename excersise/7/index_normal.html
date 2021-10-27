@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+
+            const LIMIT = true;
+            const LIMIT_VALUE = Number.MAX_VALUE;
+            const FIBONNACI = 2000;
+            let table = [];
+
+            function fibonacci(i) {
+                if(i === 0) return 0;
+                if(i === 1 || i === 2) return 1; 
+                
+                if(i < table.length) return table[i];
+
+                return fibonacci(i-1) + fibonacci(i-2);
+            }
+
+            function print_series_until(n) {
+                let series = "";
+                
+                for (let i = 0; i < n; i++) {
+                    let fibonum = fibonacci(i);
+                    table[i] = fibonum;
+
+                    if(LIMIT && fibonum > LIMIT_VALUE) {
+                        console.log("Last max safe num of " + LIMIT_VALUE + " is fibonnaci number " + table[i-1] + ", the " + i + "th" );
+                        return series;
+                    }
+
+                    series += fibonum;
+
+                    if(i !== n-1) series += ',';
+                }
+                
+                return series;
+            }
+
+            console.log(print_series_until(FIBONNACI));
+        </script>
+    </head>
+
+    <body>
+
+        <h1><u>Fibonacci-Serie</u></h1>
+        <p>Ausgabe in der Konsole</p>
+    </body>
+</html>

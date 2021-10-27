@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+            const FIBONNACI = 2000;
+            let table = [];
+
+            function fibonacci(i) {
+                if(i === 0) return 0;
+                if(i === 1 || i === 2) return 1; 
+                
+                if(i < table.length) return table[i];
+
+                return fibonacci(BigInt(i)-1n) + fibonacci(BigInt(i)-2n);
+            }
+
+            function print_series_until(n) {
+                let series = "";
+                
+                for (let i = 0; i < n; i++) {
+                    let fibonum = BigInt(fibonacci(i));
+                    table[i] = fibonum;
+                    series += fibonum;
+                
+
+                    if(i !== n-1) series += ',';
+                }
+                
+                return series;
+            }
+
+            console.log(print_series_until(FIBONNACI));
+        </script>
+    </head>
+
+    <body>
+
+        <h1><u>Fibonacci-Serie mit BigInt</u></h1>
+        <p>Ausgabe in der Konsole</p>
+
+    </body>
+</html>
