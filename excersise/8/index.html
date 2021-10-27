@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+
+            const start = Date.now();
+
+            function Node(name, dependencies) {
+                this.name = name;
+                this.dependencies = dependencies;
+            }
+
+            function topsort(dependencies) {
+                let object_types = [];
+                let nodes = [];
+                let sorted = [];
+
+                for(const dependency of dependencies) {
+                    //Gather all Node Names
+                    for(const object_type of dependency) {
+                        for(const other_object_type of dependency) {
+                            if(!object_types.includes(other_object_type)) {
+                                object_types.push(other_object_type);
+                            }
+                        }
+
+                    }
+
+                    //Invert them
+                    let tmp = dependency[1];
+                    dependency[1] = dependency[0];
+                    dependency[0] = tmp;
+                }
+
+                //Create Nodes with their Dependencies
+                for(const object_type of object_types) {
+                    let node_dependencies = 0;
+
+                    for(const dependency of dependencies) {
+                        if(object_type === dependency[0]) {
+                            node_dependencies++;
+                        }
+                    }
+
+                    nodes.push(new Node(object_type, node_dependencies));
+                }
+
+                //Sort
+                while(nodes.length > 0) {
+                    for(let i = 0; i < nodes.length; i++) {
+                        if(nodes[i].dependencies === 0) {
+                            sorted.push(nodes[i].name);
+                            nodes.splice(nodes.indexOf(nodes[i]), 1);
+                        } else {
+                            nodes[i].dependencies--;
+                        }
+                    }
+                }
+
+                return sorted;
+            }
+
+            console.log(topsort([["unterhose", "hose"], ["unterhemd", "pullover"], ["socken", "schuhe"],["pullover", "mantel"],["hose", "mantel"],["hose", "schuhe"]]));
+
+            const duration = Date.now() - start;
+
+            console.log('Time taken to execute: '+ duration +' milliseconds');
+
+            let testvalue = [["unterhose", "hose"], ["unterhemd", "pullover"], ["socken", "schuhe"],["pullover", "mantel"],["hose", "mantel"],["hose", "schuhe"]];
+            
+            let result = topsort(testvalue);
+            let expected = ['unterhose', 'unterhemd', 'socken', 'hose', 'mantel', 'pullover', 'schuhe'];
+
+            console.assert(JSON.stringify(result)===JSON.stringify(expected), {expected: expected, actual:result});
+
+        </script>
+    </head>
+
+    <body>
+
+        <h1><u>Topsort</u></h1>
+        <p>Ausgabe in der Konsole</p>
+
+    </body>
+</html>
