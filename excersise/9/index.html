@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <h1><u>Performanzmessungen von DOM-Operationen</u></h1>
+
+        <table style="border: solid 1px;">
+            <tr>
+               <th><u>Attribute</u></th> 
+               <th><u>Performance (Millieseconds)</u></th>
+            </tr>
+
+            <tr>
+                <td>Element.innerHTML</td>
+                <td id="innerhtml_field"></td>
+            </tr>
+
+            <tr>
+                <td>Node.innerText</td>
+                <td id="innertext_field"></td>
+            </tr>
+
+            <tr>
+                <td>Node.textContent</td>
+                <td id="textcontent_field"></td>
+            </tr>
+
+            <tr>
+                <td>Element.outerHTML</td>
+                <td id="outerhtml_field"></td>
+            </tr>
+
+        </table>
+
+        <script>
+
+            const a = document.createElement('a');
+            a.appendChild(document.createTextNode('text'));
+
+            let time = performance.now();
+            a.innerHTML = 'text';
+            document.getElementById('innerhtml_field').textContent = (performance.now() - time);
+
+            time = performance.now();
+            a.innerText = 'text';
+            document.getElementById('innertext_field').textContent = (performance.now() - time);
+
+            time = performance.now();
+            a.textContent = 'text';
+            document.getElementById('textcontent_field').textContent = (performance.now() - time);
+
+            time = performance.now();
+            a.outerHTML = 'text';
+            document.getElementById('outerhtml_field').textContent = (performance.now() - time);
+
+        </script>
+
+    </body>
+</html>
