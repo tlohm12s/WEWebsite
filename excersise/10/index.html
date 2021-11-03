@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <script src="redner.js"></script>
+
+        <style>
+            span, input {
+                margin-left: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Rednerliste</h1>
+
+        <span>Neue Redner:</span> <input type="text" id="redner_name"> <input type="button" value="Hinzufügen" onclick="addRedner(document.getElementById('redner_name').value)">
+
+        <ul id="list">
+
+        </ul>
+
+    </body>
+</html>
