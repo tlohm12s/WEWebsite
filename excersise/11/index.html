@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <script src="topsort.js"></script>
+
+        <style>
+            span, input {
+                margin-left: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1><u>TopSort Webapp</u></h1>
+
+        <h2>Abhängigkeit erstellen:</h2>
+        <span>Von:</span><input id="from_field" type="text"><span style="margin-left: 5px;">Zu:</span><input id="to_field" type="text"><input type="button" value="Hinzufügen" onclick="addDependency(document.getElementById('from_field').value, document.getElementById('to_field').value)">
+        <input type="button" value="Sortieren" onclick="sort()">
+
+        <h2>Abhängigkeiten <input type="button" value="Löschen" onclick="clearList()">:</h2>
+        <ul id="relation_list"> </ul>
+
+
+        <h2>Sortiert:</h2>
+
+        <ol id="sorted_list"> </ol>
+
+
+
+
+    </body>
+</html>
