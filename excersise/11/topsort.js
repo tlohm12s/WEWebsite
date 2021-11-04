@@ -50,11 +50,8 @@ function topsort(dependencies) {
         nodes.push(new Node(object_type, node_dependencies));
     }
 
-    let x = 0;
     //Sort
     while(nodes.length > 0) {
-        x++;
-
         for(let i = 0; i < nodes.length; i++) {
             if(nodes[i].dependencies.length === 0) {
                 sorted.push(nodes[i].name);
@@ -68,8 +65,6 @@ function topsort(dependencies) {
                 nodes.splice(nodes.indexOf(nodes[i]), 1);
             }
         }
-
-        if(x > 20) break;
     }
     
     return sorted;
