@@ -39,29 +39,39 @@ function topsort(dependencies) {
 
     //Create Nodes with their Dependencies
     for(const object_type of object_types) {
-        let node_dependencies = 0;
+        let node_dependencies = [];
 
         for(const dependency of dependencies) {
             if(object_type === dependency[0]) {
-                node_dependencies++;
+                node_dependencies.push(dependency[1]);
             }
         }
 
         nodes.push(new Node(object_type, node_dependencies));
     }
 
+    let x = 0;
     //Sort
     while(nodes.length > 0) {
+        x++;
+
         for(let i = 0; i < nodes.length; i++) {
-            if(nodes[i].dependencies === 0) {
+            if(nodes[i].dependencies.length === 0) {
                 sorted.push(nodes[i].name);
+
+                for(let j = 0; j < nodes.length; j++) {
+                    if(nodes[j].dependencies.includes(nodes[i].name)) {
+                        nodes[j].dependencies.splice(nodes[j].dependencies.indexOf(nodes[i].name), 1);
+                    }
+                }
+
                 nodes.splice(nodes.indexOf(nodes[i]), 1);
-            } else {
-                nodes[i].dependencies--;
             }
         }
-    }
 
+        if(x > 20) break;
+    }
+    
     return sorted;
 }
 
