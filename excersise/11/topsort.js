@@ -16,6 +16,7 @@ function Node(name, dependencies) {
 }
 
 function topsort(dependencies) {
+    dependencies = JSON.parse(JSON.stringify(dependencies));
     let object_types = [];
     let nodes = [];
     let sorted = [];
