@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script>
+
+            function klammerpaare(text, klammertypen = [['{','}'], ['[',']'], ['(',')']]) {
+                let pairs = [];
+
+                for(let i = 0; i < text.length; i++) {
+                    //Equals Open Klammer
+                    for(let j = 0; j < klammertypen.length; j++) {
+                        if(text[i] === klammertypen[j][0]) {
+                            pairs.push(j);
+                        }
+                    }
+
+                    //Equals Closed Klammer
+                    for(let j = 0; j < klammertypen.length; j++) {
+                        if(text[i] === klammertypen[j][1]) {
+                            if(pairs.length === 0 || (pairs.length > 0 && j !== pairs.pop())) return false;
+                        }
+                    }
+                }
+
+                if(pairs.length > 0) return false;
+                
+                return true;
+            }
+
+            function onInput() {
+                if(klammerpaare(document.getElementById('input_field').value)) {
+                    document.getElementById('input_field').style.color = "black";
+                } else {
+                    document.getElementById('input_field').style.color = "red";
+                }
+            }
+
+            console.assert(klammerpaare("abc"), {expected: true, actual: klammerpaare("abc")});
+            console.assert(klammerpaare("abc()"), {expected: true, actual: klammerpaare("abc()")});
+            console.assert(klammerpaare("a()bc()"), {expected: true, actual: klammerpaare("a()bc()")});
+            console.assert(klammerpaare("abc([][])"), {expected: true, actual: klammerpaare("abc([][])")});
+
+            console.assert(!klammerpaare("abc)"), {expected: false, actual: klammerpaare("abc)")});
+            console.assert(!klammerpaare("abc("), {expected: false, actual: klammerpaare("abc(")});
+            console.assert(!klammerpaare("abc()}"), {expected: false, actual: klammerpaare("abc()}")});
+            console.assert(!klammerpaare("abc(})"), {expected: false, actual: klammerpaare("abc(})")});
+
+        </script>
+    </head>
+
+    <body>
+
+        <h1><u>Klammerpaare</u></h1>
+        <input type="text" id="input_field" onkeyup="onInput()" style="width: 320px" placeholder="Enter string of random characters and symbols here...">
+
+    </body>
+</html>
