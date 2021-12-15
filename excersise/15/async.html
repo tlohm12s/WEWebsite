@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8"/>
+
+        <script>
+            
+            async function retrieveTextLines(url) {
+                const request = await fetch(url).catch(error => console.error("Failed retrieving File from " + url, error));
+
+                const lines = await request.text();
+
+                return lines.split("\n");
+            }
+
+            (async _ => {
+
+
+                const fileA = retrieveTextLines("https://www2.inf.h-bonn-rhein-sieg.de/~tlohm12s/A.txt");
+                const fileB = retrieveTextLines("https://www2.inf.h-bonn-rhein-sieg.de/~tlohm12s/B.txt");
+
+                const [linesA, linesB] = [await fileA, await fileB];
+
+                let iterator = linesA;
+
+                if (linesB.length > linesA.length) iterator = linesB;
+
+                for(let i = 0; i < iterator.length; i++) {
+                    document.write((linesA[i] !== undefined ? linesA[i] : "") + (linesB[i] !== undefined ? linesB[i] : ""));
+                }
+
+            })();
+
+        </script>
+
+    </head>
+
+</html>

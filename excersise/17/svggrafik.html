@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <style>
+            /* https://stackoverflow.com/questions/10144171/css3-webkit-css-animations-resize-a-div-rectangle */
+            #svgimage {
+                width: 300px;
+                -webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+                -moz-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+                -o-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+                transition:width 300ms ease-in-out, height 300ms ease-in-out;
+            }
+
+            #svgimage:hover {
+                width: 600px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <svg id="svgimage" viewBox="0 0 300 300">
+            <rect x="0" y="0" width="300" height="300" fill="#cb798d"></rect>
+            <text style="font-size: 3.5em; font-family:Verdana, Geneva, Tahoma, sans-serif" x="0" y="50" width="100" fill="white">
+                <tspan x="30" y="80">Use</tspan>
+                <tspan x="30" y="160">The</tspan>
+                <tspan x="30" y="240">Platform</tspan>
+            </text>
+
+            <g style="stroke:white; stroke-width:3">
+                <line x1="30" y1="90" x2="265" y2="90"></line>
+                <line x1="30" y1="170" x2="265" y2="170"></line>
+                <line x1="30" y1="250" x2="265" y2="250"></line>
+            </g>
+        </svg>
+    </body>
+</html>

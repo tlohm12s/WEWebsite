@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8"/>
+
+        <script>
+
+            let contentFromFileA, contentFromFileB;
+
+            Promise.all([
+                fetch("https://www2.inf.h-bonn-rhein-sieg.de/~tlohm12s/A.txt")
+                .then(response => response.text())
+                .then(text => {
+                    return text;
+                })
+                .catch(error => console.error("Something went worng retrieving File A: " + error)),
+
+                fetch("https://www2.inf.h-bonn-rhein-sieg.de/~tlohm12s/B.txt")
+                .then(response => response.text())
+                .then(text => {
+                    return text;
+                })
+                .catch(error => console.error("Something went worng retrieving File B: " + error))
+            ]).then(files => {
+                let linesA = files[0].split('\n');
+                let linesB = files[1].split('\n');
+
+                let iterator = linesA;
+
+                if (linesB.length > linesA.length) iterator = linesB;
+
+                for(let i = 0; i < iterator.length; i++) {
+                    document.write((linesA[i] !== undefined ? linesA[i] : "") + (linesB[i] !== undefined ? linesB[i] : ""));
+                }
+            });
+
+        </script>
+
+    </head>
+
+</html>

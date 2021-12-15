@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Tic-Tac-Toe</title>
+
+        <style>
+            svg {
+                display:block; 
+                margin-left:auto; margin-right: auto; 
+                width: 250px; height: 300px;
+            }
+        </style>
+
+        <script>
+
+            let circleTurn = true;
+            let gameMatrix = [[], [], []];
+
+            let symbols = [];
+            let symbolsSet = 0;
+            let finished = false;
+
+            window.onload = function() {
+                
+                for(let i = 0; i < 3; i++) {
+                    for(let j = 0; j < 3; j++) {
+                        gameMatrix[i][j] = 0;
+                    }
+                }
+
+                setTurn();
+            };
+
+            function setTurn() {
+                if (circleTurn) {
+                    document.getElementById("score").textContent = "Spieler Kreis ist dran!";
+                } else {
+                    document.getElementById("score").textContent = "Spieler Kreuz ist dran!";
+                }
+            }
+
+            function checkWin() {
+                let inital = 0;
+                let won = 0;
+
+                loop1:
+                for(let j = 0; j < 3; j++) {
+                    for(let i = 0; i < 3; i++) {
+                        if(i == 0) { inital = gameMatrix[0][j]; won = inital;}
+                        if(inital != gameMatrix[i][j] && inital != 0) { won = 0; break loop1; }
+                        if(i == 2 && won != 0) return won;
+                    }
+                }
+
+                loop2:
+                for(let j = 0; j < 3; j++) {
+                    for(let i = 0; i < 3; i++) {
+                        if(i == 0) { inital = gameMatrix[j][0]; won = inital;}
+                        if(inital != gameMatrix[j][i] && inital != 0) { won = 0; break loop2; }
+                        if(i == 2 && won != 0) return won;
+                    }
+                }
+
+                if(gameMatrix[0][0] != 0 && gameMatrix[0][0] == gameMatrix[1][1] && gameMatrix[0][0] == gameMatrix[2][2]) return gameMatrix[0][0];
+                if(gameMatrix[2][0] != 0 && gameMatrix[2][0] == gameMatrix[1][1] && gameMatrix[2][0] == gameMatrix[0][2]) return gameMatrix[0][2];
+
+                return won;
+            }
+
+            function createCircle(column, row) {
+                let newCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                newCircle.setAttribute("cx", 75 + column * 50);
+                newCircle.setAttribute("cy", 125 + row * 50);
+                newCircle.setAttribute("r", 20);
+                newCircle.setAttribute("style", "fill: white; stroke: red; stroke-width:3");
+                
+                return newCircle;
+            }
+
+            function createCross(column, row) {
+                let newCross = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                newCross.setAttribute("style", "stroke: blue; stroke-width:3");
+
+                let line1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                line1.setAttribute("x1", 55 + column * 50);
+                line1.setAttribute("x2", 95 + column * 50);
+                line1.setAttribute("y1", 105 + row * 50);
+                line1.setAttribute("y2", 145 + row * 50);
+
+                let line2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                line2.setAttribute("x1", 95 + column * 50);
+                line2.setAttribute("x2", 55 + column * 50);
+                line2.setAttribute("y1", 105 + row * 50);
+                line2.setAttribute("y2", 145 + row * 50);
+
+                newCross.appendChild(line1);
+                newCross.appendChild(line2);
+
+                return newCross;
+            }
+
+            function setSymbol(element, column, row) {
+                if(gameMatrix[column][row] == 0 && !finished) {
+                    if (circleTurn) {
+                        element.parentElement.appendChild(createCircle(column, row));
+                        gameMatrix[column][row] = 1;
+                    } else {
+                        element.parentElement.appendChild(createCross(column, row));
+                        gameMatrix[column][row] = 2;
+                    }
+                    circleTurn = !circleTurn;
+
+                    symbolsSet++;
+
+                    setTurn();
+
+                    if(symbolsSet >= 9) document.getElementById("score").textContent = "Unentschieden!";
+
+                    let won = checkWin();
+                    switch(won) {
+                        case 1:
+                            document.getElementById("score").textContent = "Spieler Kreis hat gewonnen!";
+                        break;
+                        case 2: 
+                            document.getElementById("score").textContent = "Spieler Kreuz hat gewonnen!";
+                        break;
+                    }
+                    if(won > 0 || symbolsSet >= 9) {
+                        finished = true;
+                        document.getElementById("sometext").textContent = "Lade die Seite neu um neuzustarten!";
+                    } 
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <svg viewBox="0 0 250 250" id="game"> 
+            <text id="score" x="50" y="50">-</text>
+
+            <g style="stroke:black; stroke-width:3">
+                <line x1="100" x2="100" y1="100" y2="250"></line>
+                <line x1="150" x2="150" y1="100" y2="250"></line>
+
+                <line x1="50" x2="200" y1="150" y2="150"></line>
+                <line x1="50" x2="200" y1="200" y2="200"></line>
+            </g>
+
+            <circle cx="75" cy="125" r="20" style="fill: white; stroke: red; stroke-width:3"/>
+
+            <g style="stroke: blue; stroke-width:3" transform="">
+                <line x1="55" x2="95" y1="105" y2="145"/>
+                <line x1="95" x2="55" y1="105" y2="145"/>
+            </g>
+
+            <g fill="white">
+                <rect id="rect-0-0" x="53" y="103" width="44" height="44" onmouseup="setSymbol(this,0,0)"></rect>
+                <rect id="rect-1-0" x="103" y="103" width="44" height="44" onmouseup="setSymbol(this,1,0)"></rect>
+                <rect id="rect-2-0" x="153" y="103" width="44" height="44" onmouseup="setSymbol(this,2,0)"></rect>
+
+                <rect id="rect-0-1" x="53" y="153" width="44" height="44" onmouseup="setSymbol(this,0,1)"></rect>
+                <rect id="rect-1-1" x="103" y="153" width="44" height="44" onmouseup="setSymbol(this,1,1)"></rect>
+                <rect id="rect-2-1" x="153" y="153" width="44" height="44" onmouseup="setSymbol(this,2,1)"></rect>
+
+                <rect id="rect-0-2" x="53" y="203" width="44" height="44" onmouseup="setSymbol(this,0,2)"></rect>
+                <rect id="rect-1-2" x="103" y="203" width="44" height="44" onmouseup="setSymbol(this,1,2)"></rect>
+                <rect id="rect-2-2" x="153" y="203" width="44" height="44" onmouseup="setSymbol(this,2,2)"></rect>
+            </g>
+
+            <text id="sometext" x="18" y="270"></text>
+            
+        </svg>
+    </body>
+</html>
