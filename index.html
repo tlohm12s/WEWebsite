@@ -3,7 +3,13 @@
 
     <head>
 
+        <title>My Page</title>
+
         <meta charset="utf-8"/>
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <script src="site.js"></script>
 
         <style>
             * {
@@ -12,12 +18,9 @@
 
             /* https://www.w3schools.com/howto/howto_css_center-vertical.asp */
             .center {
-                margin: 0;
-                position: absolute;
-                top: 60%;
-                left: 50%;
-                -ms-transform: translate(-50%, -75%);
-                transform: translate(-50%, -75%);
+                margin: auto;
+                margin-top: 2%;
+                width: 90%;
             }
 
             html, body {
@@ -27,11 +30,13 @@
 
             body {
                 display: grid;
-                grid-template-rows: 20% 60% 20%;
+                grid-template-rows: 20% 1fr 10%;
                 grid-template-columns: 100%;
             }
 
             header {
+                position: relative;
+
                 background-color: steelblue;
 
                 grid-row: 1/2;
@@ -49,6 +54,7 @@
             }
 
             footer {
+                position: relative;
                 background-color: steelblue;
 
                 grid-row: 3/4;
@@ -56,11 +62,61 @@
             }
             
             .title {
-                margin-top: 3%;
+                /* https://www.w3schools.com/css/css_align.asp */
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
 
                 /*https://www.w3schools.com/css/css3_shadows.asp*/
                 color: white;
                 text-shadow: 2px 2px 4px #000000;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                align-content: space-between;
+
+                border: 1;
+                overflow: hidden;
+            }
+
+            .nav-item {
+                text-align: center;
+
+                padding: 5px;
+                border-radius: 5px;
+                margin: 2%;
+
+                background-color: powderblue;
+                width: 330px;
+                height: 230px;
+
+                word-wrap: break-word;
+            }
+
+            iframe {
+                overflow: hidden;
+
+                width: 1280px;
+                height: 786px;
+
+                border: 0;
+                zoom: 3;
+                
+                -ms-transform: scale(0.25);
+                -moz-transform: scale(0.25);
+                -o-transform: scale(0.25);
+                -webkit-transform: scale(0.25);
+                transform: scale(0.25);
+                
+                -ms-transform-origin: 0 0;
+                -moz-transform-origin: 0 0;
+                -o-transform-origin: 0 0;
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
             }
         </style>
 
@@ -70,40 +126,22 @@
  
         
         <header>
-            <h1 class="title"><u>Welcome to my page!</u></h1>
+            <h1 class="title"><u> 2021 WS - Einführung in Web Engineering <br> (Meine Homepage) </u></h1>
         </header>
 
         <section>
             <div class="center">
-                <h1> <u>Table of contents</u> </h1>
-                <nav>
-                    <ul style="padding-left: 0;">
-                        <li> <a href="excersise/0/index.html">HTML Wireframe (1.4)</a> </li>
-                        <li> <a href="excersise/1/index.html">CSS Positionierung Teil 1 (2.2)</a> </li>
-                        <li> <a href="excersise/2/index.html">CSS Positionierung Teil 2 (2.2)</a> </li>
-                        <li> <a href="excersise/3/index.html">Wireframe with HTML and CSS (2.3)</a> </li>
-                        <li> <a href="excersise/4/index.html">Responsiv mit Flexbox Desktop-First (3.1)</a> </li>
-                        <li> <a href="excersise/5/index.html">Responsiv mit Grid Mobile-First (3.2)</a> </li>
-                        <li> <a href="excersise/6/index.html">Responsiv mit Grid (3.3)</a> </li>
-                        <li> <a href="excersise/7/index_normal.html">Fibonacci (4.3)</a> </li>
-                        <li> <a href="excersise/7/index.html">Fibonacci (BigInt) (4.3.2)</a> </li>
-                        <li> <a href="excersise/8/index.html">TopSort (4.4)</a> </li>
-                        <li> <a href="excersise/9/index.html">Performanzmessungen von DOM-Operationen (5.1)</a> </li>
-                        <li> <a href="excersise/10/index.html">Rednerliste mit Zeitmessung (5.2)</a> </li>
-                        <li> <a href="excersise/11/index.html">TopSort als WebApp (5.3)</a> </li>
-                        <li> <a href="excersise/12/index.html">Klammerpaare (6.1)</a> </li>  
-                        <li> <a href="excersise/13/index.html">Topologische Iterierbarkeit (6.2)</a> </li>  
-                        <li> <a href="excersise/16/index.html">WWW-Navigator (8.3)</a> </li>  
-                        <li> <a href="excersise/17/svggrafik.html">SVG Grafik von Hand erstellen (9.1)</a> </li>
-                        <li> <a href="excersise/17/index.html">Statistik-Balkendiagramm in SVG (9.2)</a> </li>
-                        <li> <a href="excersise/17/ticttactoe.html">Interaktive SVG Grafik (Tic Tac Toe) (9.3)</a> </li>                
-                    </ul>
+                <h1 style="text-align: center;"> <u>Table of best contents</u> </h1>
+
+                <nav id="navigation">
+
                 </nav>
             </div>
         </section>
 
         <footer>
-            <a  style="position: fixed; bottom: 5px; left: 5px;" href="mailto:tobias-lohmueller@live.de">By Tobias Lohmüller (2022)</a>
+            <a style="color: white; position: absolute; right: 15px; bottom: 15px; display: inline-block;" href="https://github.com/tlohm12s/WEWebsite">Link to Github-Repository</a>
+            <a style="color: white; position: absolute; left: 15px; bottom: 15px; display: inline-block;" href="mailto:tobias-lohmueller@live.de">By Tobias Lohmüller (2022)</a>
         </footer>
 
     </body>

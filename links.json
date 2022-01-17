@@ -1,0 +1,21 @@
+{
+    "HTML Wireframe (1.4)" : "excersise/0/index.html",
+    "CSS Positionierung Teil 1 (2.2)" : "excersise/1/index.html",
+    "CSS Positionierung Teil 2 (2.2)" : "excersise/2/index.html",
+    "Wireframe with HTML and CSS (2.3)" : "excersise/3/index.html",
+    "Responsiv mit Flexbox Desktop-First (3.1)" : "excersise/4/index.html",
+    "Responsiv mit Grid Mobile-First (3.2)" : "excersise/5/index.html",
+    "Responsiv mit Grid (3.3)" : "excersise/6/index.html",
+    "Fibonacci (4.3)" : "excersise/7/index_normal.html",
+    "Fibonacci (BigInt) (4.3.2)" : "excersise/7/index.html",
+    "Performanzmessungen von DOM-Operationen (5.1)" : "excersise/9/index.html",
+    "Rednerliste mit Zeitmessung (5.2)" : "excersise/10/index.html",
+    "Klammerpaare (6.1)" : "excersise/12/index.html",
+    "Topologische Iterierbarkeit (6.2)" : "excersise/13/index.html",
+    "WWW-Navigator (8.3)" : "excersise/16/index.html",
+    "SVG Grafik von Hand erstellen (9.1)" : "excersise/17/svggrafik.html",
+    "Statistik-Balkendiagramm in SVG (9.2)" : "excersise/17/index.html",
+    "Interaktive SVG Grafik (Tic Tac Toe) (9.3)" : "excersise/17/ticttactoe.html",
+    "WWW-Navigator 2.0 (12.3)" : "excersise/20/index.php"
+
+}
