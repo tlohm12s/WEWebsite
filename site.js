@@ -12,6 +12,7 @@
             nav_item.classList.add("nav-item");
             nav_item.textContent = titel;
             nav_item.href = link;
+            nav_item.target = "_blank";
             
             let frame = document.createElement("iframe");
             frame.src = link;
