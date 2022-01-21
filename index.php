@@ -14,9 +14,6 @@
         $file = "accounts.csv";
 
         if (isset($_POST['login'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
             $fileHandle = fopen($file, "r");
             
             $userFound = null;
