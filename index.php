@@ -1,3 +1,55 @@
+<?php 
+
+    session_start();
+
+    if($_GET['action'] == 'logout') {
+        unset($_SESSION['loggedin']);
+        header("Location: index.php");
+    }
+
+    if(!empty($_POST['username']) && !empty($_POST['password'])) {
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $file = "accounts.csv";
+
+        if (isset($_POST['login'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $fileHandle = fopen($file, "r");
+            
+            $userFound = null;
+            while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
+                if (hash("sha512", $password . "^3)xqQku)L'3`dpQ") === $row[0]) $userFound = $row; 
+            }
+            
+            if($userFound === null) {
+                echo "<script> alert('User not found.');</script>";
+            } else {
+                if($userFound[1] === hash("sha512", $password . "^3)xqQku)L'3`dpQ")) {
+                    echo "<script> alert('Login sucessful!');</script>";
+                    $_SESSION['loggedin'] = true;
+                    header("Refresh: 0");
+                } else {
+                    echo "<script> alert('Wrong password.');</script>";
+                }
+            }
+        } else if(isset($_POST['register'])) {
+            $new_line = hash("sha512", $username . "^3)xqQku)L'3`dpQ") . "," . hash("sha512", $password . "^3)xqQku)L'3`dpQ") . "\n";
+        
+            $file = file_put_contents( $file, $new_line, FILE_APPEND | LOCK_EX );
+        
+            if ($file) {
+              echo "<script> alert('Registered successfully!');</script>";
+            } else {
+              echo "<script> alert('Registration failed. Error: " . var_dump($file) . "');</script>";
+            }
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,8 +60,6 @@
         <meta charset="utf-8"/>
 
         <link rel="shortcut icon" href="favicon.png">
-
-        <script src="site.js"></script>
 
         <style>
             * {
@@ -31,6 +81,29 @@
                 display: grid;
                 grid-template-rows: 22% 2fr 6%;
                 grid-template-columns: 100%;
+            }
+
+            form {
+                text-align:center;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+
+            .log-out {
+                display: block; 
+
+                position: absolute; 
+                top: 50%;
+                right: 9%;
+
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+
+                visibility: hidden;
             }
 
             header {
@@ -60,7 +133,6 @@
             }
 
             .footer-link {
-                /* https://www.w3schools.com/css/css_align.asp */
                 margin: 0;
                 position: absolute;
                 top: 50%;
@@ -74,7 +146,6 @@
                 border-radius: 5px;
                 padding: 15px;
 
-                /* https://www.w3schools.com/css/css_align.asp */
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -136,32 +207,27 @@
     </head>
 
     <body>
- 
         
         <header>
             <h1 class="title"><u> 2021 WS - Einführung in Web Engineering <br> (Meine Homepage) </u></h1>
-            <svg version="1.1"
-                    width="300" height="200"
-                    xmlns="http://www.w3.org/2000/svg" style="display:block; margin-left: 5px;">
-            
-                <rect width="100%" height="100%" fill="red" />
-            
-                <circle cx="150" cy="100" r="80" fill="green" />
-            
-                <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
-            
-            </svg>
+
+            <input type="button" id="logout_button" class="log-out" value="Log out" onclick="history.pushState(null, null, '?action=logout'); location.reload(true); ">
         </header>
 
-        <section>
-            <div class="center">
-                <h1 style="text-align: center;"> <u>Table of best contents</u> </h1>
+        <?php 
 
-                <nav id="navigation">
+             if(!$_SESSION['loggedin']) {
+                if($_GET['action'] == 'register') {
+                    include_once('register.php');
+                } else {
+                    include_once('login.php');
+                }
+            } else {
+                include_once('main.php');
+                echo "<script> document.getElementById('logout_button').style.visibility = 'visible'; </script>";
+            }
 
-                </nav>
-            </div>
-        </section>
+        ?>
 
         <footer>
             <a class="footer-link" style="left: 15px;" href="https://github.com/tlohm12s/WEWebsite">Link to Github-Repository</a>
