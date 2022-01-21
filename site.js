@@ -14,11 +14,11 @@
             nav_item_title.textContent = titel;
             nav_item_title.href = content['link'];
             nav_item_title.target = "_blank";
-            nav_item_title.style.padding = "4px";
+            nav_item_title.style.fontWeight = "bold";
 
             let nav_item_description = document.createElement("p");
             nav_item_description.style.textDecoration = "none";
-            nav_item_description.innerHTML = "Aufgabe: <br>" + content['beschreibung'];
+            nav_item_description.innerHTML = "<b><u>Aufgabe:</u></b> <br>" + content['beschreibung'];
 
             let nav_item = document.createElement("div");
             nav_item.classList.add("nav-item");

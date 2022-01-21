@@ -29,7 +29,7 @@
 
             body {
                 display: grid;
-                grid-template-rows: minmax(15%, 1fr) 2fr 4%;
+                grid-template-rows: 22% 2fr 6%;
                 grid-template-columns: 100%;
             }
 
@@ -45,8 +45,7 @@
             }
 
             section {
-                border-radius: 35px;
-                background-color: whitesmoke;
+                background-color: aliceblue;
 
                 grid-row: 2/3;
                 grid-column: auto;
@@ -59,14 +58,27 @@
                 grid-row: 3/4;
                 grid-column: auto;
             }
-            
-            .title {
+
+            .footer-link {
                 /* https://www.w3schools.com/css/css_align.asp */
                 margin: 0;
                 position: absolute;
                 top: 50%;
+                transform: translate(0, -50%);
+
+                color: white; 
+            }
+            
+            .title {
+                background-color: powderblue;
+                border-radius: 5px;
+                padding: 15px;
+
+                /* https://www.w3schools.com/css/css_align.asp */
+                position: absolute;
+                top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, -75%);
 
                 /*https://www.w3schools.com/css/css3_shadows.asp*/
                 color: white;
@@ -77,12 +89,13 @@
                 display: flex;
                 flex-wrap: wrap;
                 align-content: space-between;
+                justify-content: center;
 
-                border: 1;
                 overflow: hidden;
             }
 
             .nav-item {
+                border: solid 5px;
                 text-align: center;
 
                 padding: 15px;
@@ -90,8 +103,8 @@
                 margin: 2%;
 
                 background-color: powderblue;
-                width: 350px;
-                height: 290px;
+                width: 360px;
+                height: 350px;
 
                 word-wrap: break-word;
             }
@@ -99,11 +112,12 @@
             /* https://stackoverflow.com/questions/166160/how-can-i-scale-the-content-of-an-iframe */
             iframe {
                 overflow: hidden;
+                border: solid;
 
                 width: 1280px;
                 height: 786px;
 
-                border: 0;
+                border: solid;
                 
                 -ms-transform: scale(0.25);
                 -moz-transform: scale(0.25);
@@ -126,6 +140,17 @@
         
         <header>
             <h1 class="title"><u> 2021 WS - Einführung in Web Engineering <br> (Meine Homepage) </u></h1>
+            <svg version="1.1"
+                    width="300" height="200"
+                    xmlns="http://www.w3.org/2000/svg" style="display:block; margin-left: 5px;">
+            
+                <rect width="100%" height="100%" fill="red" />
+            
+                <circle cx="150" cy="100" r="80" fill="green" />
+            
+                <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+            
+            </svg>
         </header>
 
         <section>
@@ -139,8 +164,8 @@
         </section>
 
         <footer>
-            <a style="color: white; position: absolute; right: 15px; bottom: 15px; display: inline-block;" href="https://github.com/tlohm12s/WEWebsite">Link to Github-Repository</a>
-            <a style="color: white; position: absolute; left: 15px; bottom: 15px; display: inline-block;" href="mailto:tobias-lohmueller@live.de">By Tobias Lohmüller (2022)</a>
+            <a class="footer-link" style="left: 15px;" href="https://github.com/tlohm12s/WEWebsite">Link to Github-Repository</a>
+            <a class="footer-link" style="right: 15px;" href="mailto:tobias-lohmueller@live.de">By Tobias Lohmüller (2022)</a>
         </footer>
 
     </body>
