@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+
+    background-color: aliceblue;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 22% 2fr 6%;
+    grid-template-columns: 100%;
+}
+
+form {
+    text-align:center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+header {
+    position: relative;
+
+    background-color: steelblue;
+
+    grid-row: 1/2;
+    grid-column: auto;
+
+    text-align: center;
+}
+
+section {
+    grid-row: 2/3;
+    grid-column: auto;
+    background-color: aliceblue;
+}
+
+footer {
+    position: relative;
+    background-color: steelblue;
+
+    grid-row: 3/4;
+    grid-column: auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+input[type="button"] {
+    min-width: fit-content;
+    width: 6%;
+    height: 2em;
+}
+
+input[type="submit"] {
+    min-width: fit-content;
+    max-width: fit-content;
+    height: 2em;
+}
+
+/* https://stackoverflow.com/questions/166160/how-can-i-scale-the-content-of-an-iframe */
+iframe {
+    overflow: hidden;
+    border: solid;
+
+    width: 1280px;
+    height: 786px;
+
+    border: solid;
+    
+    -ms-transform: scale(0.25);
+    -moz-transform: scale(0.25);
+    -o-transform: scale(0.25);
+    -webkit-transform: scale(0.25);
+    transform: scale(0.25);
+    
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.center {
+    margin: auto;
+    margin-top: 2%;
+    width: 90%;
+}
+
+.log-out {
+    display: block; 
+
+    position: absolute; 
+    top: 50%;
+    right: 9%;
+
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
+    visibility: hidden;
+}
+
+.footer-link {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    color: white; 
+}
+
+.title {
+    background-color: powderblue;
+    border-radius: 5px;
+    padding: 15px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+
+    /*https://www.w3schools.com/css/css3_shadows.asp*/
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.nav-item {
+    border: solid 5px;
+    text-align: center;
+
+    padding: 15px;
+    border-radius: 5px;
+    margin: 2%;
+
+    background-color: powderblue;
+    width: 360px;
+    height: 350px;
+
+    word-wrap: break-word;
+}
+
+.wwwnav-link {
+    display: block;
+    width: 10%;
+
+    background-color:white;
+    padding: 10px;
+    border-radius: 5px;
+
+    position: absolute; 
+    top: 50%;
+    left: 9%;
+
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
+    visibility: hidden;
+}
