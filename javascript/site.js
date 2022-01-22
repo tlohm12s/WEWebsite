@@ -5,7 +5,7 @@
         let navigation = document.getElementById("navigation");
         let data = await fetch("/resources/links.json").then(response => response.json());
 
-        for (const titel in data){
+        for (const titel in data) {
             let content = data[titel];
             
             let nav_item_title = document.createElement("a");
@@ -34,3 +34,32 @@
     };
 
 })();
+
+Vue.component('nav-item', {
+    props: ['titel', 'link', 'beschreibung'],
+    template: `
+        <div class='nav-item'>
+            <a style='font-weight: bold;' :href='link' target='_blank'> 
+                {{titel}} 
+            </a>
+            <p> 
+                <b><u>Aufgabe:</u></b> 
+                <br>
+                {{beschreibung}}
+            </p>
+
+            <iframe :src="link"> </iframe>
+        </div>
+    `
+});
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: {}
+    },
+    created: async function() {
+        data = await fetch("/resources/links.json").then(response => response.json());
+        console.log(data);
+    }
+});

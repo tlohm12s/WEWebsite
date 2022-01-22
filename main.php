@@ -3,9 +3,11 @@
         
         <h1 style="background-color: steelblue; margin: auto; border-radius: 1em; padding: 0.5em; text-align: center; width: fit-content;"> <u>Best contents</u> </h1>
 
-        <div id="app">
-            {{ message }}
-        </div>
+        <nav id="navigation"></nav>
+
+        <nav id="app">
+            <nav-item titel="asd" link="asd"></nav-item>
+        </nav>
     </div>
 </section>
 
