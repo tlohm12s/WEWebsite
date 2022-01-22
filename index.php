@@ -14,41 +14,45 @@
         header("Location: index.php");
     }
 
-    if(!empty($_POST['username']) && !empty($_POST['password'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $file = "resources/accounts.csv";
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(!empty($_POST['username']) && !empty($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $file = "resources/accounts.csv";
 
-        if (isset($_POST['login'])) {
-            $fileHandle = fopen($file, "r");
-            
-            $userFound = null;
-            while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
-                if (hash("sha512", $password.$salt) === $row[0]) $userFound = $row; 
-            }
-            
-            if($userFound === null && hash("sha512", $username.$salt) !== $secret_user) {
-                echo "<script> alert('User not found.');</script>";
-            } else {
-                if (hash("sha512", $username.$salt) === $secret_user && hash("sha512", $password.$salt) === $secret_password) {
-                    $_SESSION['loggedin'] = true;
-                    $_SESSION['token'] = $secrettoken;
-                } else if($userFound[1] === hash("sha512", $password.$salt)) {
-                    $_SESSION['loggedin'] = true;
+            if (isset($_POST['login'])) {
+                $fileHandle = fopen($file, "r");
+                
+                $userFound = null;
+                while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
+                    if (hash("sha512", $password.$salt) === $row[0]) $userFound = $row; 
+                }
+                
+                if($userFound === null && hash("sha512", $username.$salt) !== $secret_user) {
+                    echo "<script> alert('User not found.');</script>";
                 } else {
-                    echo "<script> alert('Wrong password.');</script>";
+                    if (hash("sha512", $username.$salt) === $secret_user && hash("sha512", $password.$salt) === $secret_password) {
+                        $_SESSION['loggedin'] = true;
+                        $_SESSION['token'] = $secrettoken;
+                    } else if($userFound[1] === hash("sha512", $password.$salt)) {
+                        $_SESSION['loggedin'] = true;
+                    } else {
+                        echo "<script> alert('Wrong password.');</script>";
+                    }
+                }
+            } else if(isset($_POST['register'])) {
+                $new_line = hash("sha512", $username.$salt) . "," . hash("sha512", $password.$salt) . "\n";
+            
+                $file = file_put_contents( $file, $new_line, FILE_APPEND | LOCK_EX );
+            
+                if ($file) {
+                echo "<script> alert('Registered successfully!');</script>";
+                } else {
+                echo "<script> alert('Registration failed. Error: " . var_dump($file) . "');</script>";
                 }
             }
-        } else if(isset($_POST['register'])) {
-            $new_line = hash("sha512", $username.$salt) . "," . hash("sha512", $password.$salt) . "\n";
-        
-            $file = file_put_contents( $file, $new_line, FILE_APPEND | LOCK_EX );
-        
-            if ($file) {
-              echo "<script> alert('Registered successfully!');</script>";
-            } else {
-              echo "<script> alert('Registration failed. Error: " . var_dump($file) . "');</script>";
-            }
+        } else {
+            echo "<script> alert('Please enter a username and password!');</script>";
         }
     }
 

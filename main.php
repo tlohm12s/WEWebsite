@@ -2,7 +2,8 @@
 
 <section>
     <div class="center">
-        <h1 style="text-align: center;"> <u>Table of best contents</u> </h1>
+        
+        <h1 style="background-color: steelblue; margin: auto; border-radius: 1em; padding: 0.5em; text-align: center; width: fit-content;"> <u>Best contents</u> </h1>
 
         <nav id="navigation">
         
