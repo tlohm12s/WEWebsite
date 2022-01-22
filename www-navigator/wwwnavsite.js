@@ -256,7 +256,7 @@
 
     async function updateContent() {
         //Aus den Folien
-        return fetch(new Request('./server.php'), {
+        return fetch(new Request('./www-navigator/server.php'), {
             method: 'POST',
             mode: 'cors',
             cache: 'no-store',
