@@ -2,7 +2,7 @@
 
     const TYPE_CATEGORY = 0, TYPE_SUBCATEGORY = 1;
 
-    let categories = await fetch("www-navigator/navigator_contents.json").then(response => response.json());
+    let categories = await fetch("/resources/navigator_contents.json").then(response => response.json());
 
     let category_list = document.getElementById("categories");
     let subcategory_list = document.getElementById("subcategories");

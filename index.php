@@ -17,7 +17,7 @@
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $file = "accounts.csv";
+        $file = "resources/accounts.csv";
 
         if (isset($_POST['login'])) {
             $fileHandle = fopen($file, "r");
@@ -69,7 +69,7 @@
 
         <link rel="shortcut icon" href="favicon.png">
 
-        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 
     </head>
 

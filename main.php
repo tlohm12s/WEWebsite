@@ -1,4 +1,4 @@
-<script type="text/javascript" src="site.js"></script>
+<script type="text/javascript" src="/javascript/site.js"></script>
 
 <section>
     <div class="center">

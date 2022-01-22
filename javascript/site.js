@@ -3,7 +3,7 @@
     window.onload = async _ => {
 
         let navigation = document.getElementById("navigation");
-        let data = await fetch("links.json").then(response => response.json());
+        let data = await fetch("/resources/links.json").then(response => response.json());
 
         for (const titel in data){
             let content = data[titel];

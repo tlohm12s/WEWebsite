@@ -1,4 +1,4 @@
-<script src="www-navigator/wwwnavsite.js"> </script>
+<script src="/javascript/wwwnavsite.js"> </script>
 
 <style>
     nav {
