@@ -7,8 +7,6 @@
 
         for (const titel in data){
             let content = data[titel];
-
-            console.log(content);
             
             let nav_item_title = document.createElement("a");
             nav_item_title.textContent = titel;
