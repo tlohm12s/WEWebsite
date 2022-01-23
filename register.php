@@ -1,8 +1,3 @@
-<?php 
-
-
-?>
-
 <form method="post">
   <h1> <u> Registrieren </u> </h1>
   <br>
@@ -14,5 +9,3 @@
   <br>
   <a href="index.php"> oder einloggen! </a>
 </form>
-
-</body>
