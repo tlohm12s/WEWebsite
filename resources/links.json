@@ -1,21 +1,20 @@
-{
-    "HTML Wireframe (1.4)" : { "link" : "excersise/0/index.html" , "beschreibung" : "test"},
-    "CSS Positionierung Teil 1 (2.2)" : { "link" : "excersise/1/index.html" , "beschreibung" : "" },
-    "CSS Positionierung Teil 2 (2.2)" : { "link" : "excersise/2/index.html" , "beschreibung" : "" },
-    "Wireframe with HTML and CSS (2.3)" : { "link" : "excersise/3/index.html" , "beschreibung" : "" },
-    "Responsiv mit Flexbox Desktop-First (3.1)" : { "link" : "excersise/4/index.html" , "beschreibung" : "" },
-    "Responsiv mit Grid Mobile-First (3.2)" : { "link" : "excersise/5/index.html" , "beschreibung" : "" },
-    "Responsiv mit Grid (3.3)" : { "link" : "excersise/6/index.html" , "beschreibung" : "" },
-    "Fibonacci (4.3)" : { "link" : "excersise/7/index_normal.html" , "beschreibung" : "" },
-    "Fibonacci (BigInt) (4.3.2)" : { "link" : "excersise/7/index.html" , "beschreibung" : "" },
-    "Performanzmessungen von DOM-Operationen (5.1)" : { "link" : "excersise/9/index.html" , "beschreibung" : "" },
-    "Rednerliste mit Zeitmessung (5.2)" : { "link" : "excersise/10/index.html" , "beschreibung" : "" },
-    "Klammerpaare (6.1)" : { "link" : "excersise/12/index.html" , "beschreibung" : "" },
-    "Topologische Iterierbarkeit (6.2)" : { "link" : "excersise/13/index.html" , "beschreibung" : "" },
-    "WWW-Navigator (8.3)" : { "link" : "excersise/16/index.html" , "beschreibung" : "" },
-    "SVG Grafik von Hand erstellen (9.1)" : { "link" : "excersise/17/svggrafik.html" , "beschreibung" : "" },
-    "Statistik-Balkendiagramm in SVG (9.2)" : { "link" : "excersise/17/index.html" , "beschreibung" : "" },
-    "Interaktive SVG Grafik (Tic Tac Toe) (9.3)" : { "link" : "excersise/17/ticttactoe.html" , "beschreibung" : "" },
-    "WWW-Navigator 2.0 (12.3)" : { "link" : "excersise/20/index.php" , "beschreibung" : "" }
-
-}
+[
+    {"titel" : "HTML Wireframe (1.4)" , "link" : "excersise/0/index.html" , "beschreibung" : "test"},
+    {"titel" : "CSS Positionierung Teil 1 (2.2)" , "link" : "excersise/1/index.html" , "beschreibung" : "" },
+    {"titel" : "CSS Positionierung Teil 2 (2.2)" , "link" : "excersise/2/index.html" , "beschreibung" : "" },
+    {"titel" : "Wireframe with HTML and CSS (2.3)" , "link" : "excersise/3/index.html" , "beschreibung" : "" },
+    {"titel" : "Responsiv mit Flexbox Desktop-First (3.1)" , "link" : "excersise/4/index.html" , "beschreibung" : "" },
+    {"titel" : "Responsiv mit Grid Mobile-First (3.2)" , "link" : "excersise/5/index.html" , "beschreibung" : "" },
+    {"titel" : "Responsiv mit Grid (3.3)" , "link" : "excersise/6/index.html" , "beschreibung" : "" },
+    {"titel" : "Fibonacci (4.3)" , "link" : "excersise/7/index_normal.html" , "beschreibung" : "" },
+    {"titel" : "Fibonacci (BigInt) (4.3.2)" , "link" : "excersise/7/index.html" , "beschreibung" : "" },
+    {"titel" : "Performanzmessungen von DOM-Operationen (5.1)" , "link" : "excersise/9/index.html" , "beschreibung" : "" },
+    {"titel" : "Rednerliste mit Zeitmessung (5.2)" , "link" : "excersise/10/index.html" , "beschreibung" : "" },
+    {"titel" : "Klammerpaare (6.1)" , "link" : "excersise/12/index.html" , "beschreibung" : "" },
+    {"titel" : "Topologische Iterierbarkeit (6.2)" , "link" : "excersise/13/index.html" , "beschreibung" : "" },
+    {"titel" : "WWW-Navigator (8.3)" , "link" : "excersise/16/index.html" , "beschreibung" : "" },
+    {"titel" : "SVG Grafik von Hand erstellen (9.1)" , "link" : "excersise/17/svggrafik.html" , "beschreibung" : "" },
+    {"titel" : "Statistik-Balkendiagramm in SVG (9.2)" , "link" : "excersise/17/index.html" , "beschreibung" : "" },
+    {"titel" : "Interaktive SVG Grafik (Tic Tac Toe) (9.3)" , "link" : "excersise/17/ticttactoe.html" , "beschreibung" : "" },
+    {"titel" : "WWW-Navigator 2.0 (12.3)" , "link" : "excersise/20/index.php" , "beschreibung" : "" }
+]
