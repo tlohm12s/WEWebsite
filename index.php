@@ -6,7 +6,6 @@
     //Sha512 secretuser test
     $secret_user = "2c3da63cfc19b5849a524c73b80e4ba4fe92d39b67f791363f4e86a99c503425e6885140c7607a9e91352b8fae146fe4e5f155c84160aa7c7a3d12dad3c391cd";
     $secret_password = "91bc0ff5a132ad61e602dc1f59819a0f262b105798116728c37a3ff5442a74fa97d860b4a9f6e935829c4061497ae7ad69d0dc08cead014086671c28d16d1d02"; 
-    $secrettoken = "otbMNB38";
 
     if($_GET['action'] == 'logout') {
         session_destroy();
@@ -33,7 +32,7 @@
                 } else {
                     if (hash("sha512", $username.$salt) === $secret_user && hash("sha512", $password.$salt) === $secret_password) {
                         $_SESSION['loggedin'] = true;
-                        $_SESSION['token'] = $secrettoken;
+                        $_SESSION['privileges'] = true;
                     } else if($userFound[1] === hash("sha512", $password.$salt)) {
                         $_SESSION['loggedin'] = true;
                     } else {
@@ -56,7 +55,7 @@
         }
     }
 
-    if($_SESSION['token'] == $secrettoken) {
+    if($_SESSION['privileges']) {
       echo "<script>window.onload = function(){document.getElementById('editmode_toggle').disabled = false; document.getElementById('login').disabled = true; document.getElementById('login').value = 'Logged in';}; </script>";
     }
 
