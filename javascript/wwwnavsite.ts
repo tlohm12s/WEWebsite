@@ -255,7 +255,7 @@ async function run() {
     }
 
     async function updateContent() : Promise<Response> {
-        //Aus den Folien
+        //Teilweise aus der Vorlesung
         return fetch(new Request('www-navigator/server.php'), {
             method: 'POST',
             referrerPolicy : 'strict-origin',
@@ -267,6 +267,7 @@ async function run() {
                 'CSRF-TOKEN' : (<HTMLInputElement> document.getElementById('token')).value
             }
         });
+        //
     }
 
     async function init() : Promise<void> {            

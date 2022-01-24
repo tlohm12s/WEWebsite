@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <?php 
 
+    //Angepasste Inhalte aus
+    //https://stackoverflow.com/questions/1780687/preventing-csrf-in-php
+    //https://stackoverflow.com/questions/1070153/stop-post-data-from-different-domain-php
+
+
     $salt = "^3)xqQku)L'3`dpQ";
 
     //Sha512 secretuser test
@@ -20,11 +25,13 @@
 
         $fileHandle = fopen($account_file, "r");
 
+        //Aus der Vorlesung
         while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
             if (hash("sha512", $username.$salt) === $row[0]) {
                 return $row;
             }
         }
+        //
 
         return null;
     }
@@ -35,6 +42,7 @@
         header("Location: index.php");
     }
 
+    //Teileweise aus der Vorlesung
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
@@ -72,6 +80,8 @@
             alert('Please enter a username and password!');
         }
     }
+
+    //
 
     if($_SESSION['privileges']) {
       echo "<script>window.onload = function(){document.getElementById('editmode_toggle').disabled = false;}; </script>";

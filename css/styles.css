@@ -99,6 +99,7 @@ iframe {
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 }
+/**/
 
 .center {
     margin: auto;
@@ -142,6 +143,7 @@ iframe {
     /*https://www.w3schools.com/css/css3_shadows.asp*/
     color: white;
     text-shadow: 2px 2px 4px #000000;
+    /**/
 }
 
 .nav-item {

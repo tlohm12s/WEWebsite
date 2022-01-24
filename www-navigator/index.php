@@ -1,5 +1,5 @@
 <?php 
-
+    //https://stackoverflow.com/questions/1780687/preventing-csrf-in-php
     $token = isset($_SESSION['csrf']) ? $_SESSION['csrf'] : "";
     if (!$token) {
         $token = hash("sha512", uniqid());

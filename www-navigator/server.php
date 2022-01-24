@@ -1,7 +1,10 @@
 <?php 
     session_start();
 
+    //Teilweise aus 
     //https://stackoverflow.com/questions/1070153/stop-post-data-from-different-domain-php
+    //https://stackoverflow.com/questions/1780687/preventing-csrf-in-php
+
     header('X-Frame-Options: Deny');
 
     if((!isset($_SERVER['HTTP_REFERER']) || parse_url($_SERVER['HTTP_REFERER'])['host'] != $_SERVER['HTTP_HOST']) &&  $_SERVER['HTTP_HOST'] !== 'localhost'){
