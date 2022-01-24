@@ -16,20 +16,27 @@ Vue.component('nav-item', {
     `
 });
 
-Vue.component('searchbar', {
-    template: `
-        <input id="searchbar" type="text" class="search" placeholder="Suchen" style="position: absolute; left: 100%; top: 50%; transform: translate(-50%, -50%);">
-    `
-});
-
 var app = new Vue({
     el: '#app',
     data: {
-        navitems: [] 
+        navitems: [],
+        filteredItems: [],
+        searchterm: ''
     },
     created: async function() {
-        await fetch("/resources/links.json").then(response => response.json()).then(result => {
+        await fetch("../resources/links.json").then(response => response.json()).then(result => {
             this.navitems = result;
+            this.filteredItems = JSON.parse(JSON.stringify(this.navitems));
         });
-    }
+    },
+    watch: {
+        searchterm: {
+            handler() {
+                this.filteredItems = JSON.parse(JSON.stringify(this.navitems));
+                this.filteredItems = this.filteredItems.filter((currentItem) => {
+                    return currentItem.titel.toLowerCase().includes(this.searchterm.toLowerCase()); 
+                });
+            }
+        }
+      }
 });
