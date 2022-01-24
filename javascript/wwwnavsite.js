@@ -262,7 +262,8 @@
             cache: 'no-store',
             body: JSON.stringify(categories),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'CSRF-TOKEN' : document.getElementById('token').value
             }
         });
     }

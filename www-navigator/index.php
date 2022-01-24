@@ -1,3 +1,12 @@
+<?php 
+
+    $token = isset($_SESSION['csrf']) ? $_SESSION['csrf'] : "";
+    if (!$token) {
+        $token = hash("sha512", uniqid());
+        $_SESSION['csrf']= $token;
+    }
+
+?>
 <script src="/javascript/wwwnavsite.js"> </script>
 
 <style>
@@ -13,6 +22,7 @@
 
 
 <section style="border-radius: 1em; margin-top: 1%;">
+    <input type="hidden" id="token" value="<?php echo $token; ?>" />
     <header style="background-color: steelblue; border-radius: 1em; padding-top: 0.1em; padding-bottom: 0.1em; margin: auto; margin-left: 1%; margin-right: 1%;">
         <input id="editmode_toggle" type="button" style="position: absolute; top: 50%; left: 55px; -webkit-transform: translate(0, -50%); transform: translate(0, -50%);" value="Edit Mode: Off" disabled>
 
