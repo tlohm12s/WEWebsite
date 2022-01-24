@@ -25,8 +25,5 @@ var app = new Vue({
         await fetch("/resources/links.json").then(response => response.json()).then(result => {
             this.navitems = result;
         });
-
-        console.log("asd");
-        console.log("Result", this.navitems);
     }
 });
