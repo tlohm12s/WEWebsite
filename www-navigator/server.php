@@ -3,8 +3,6 @@
 
     //https://stackoverflow.com/questions/1070153/stop-post-data-from-different-domain-php
     header('X-Frame-Options: Deny');
-    header('host: ' . $_SERVER['HTTP_HOST']);
-    header('refers: '. parse_url($_SERVER['HTTP_REFERRER'])['host']);
 
     if((!isset($_SERVER['HTTP_REFERRER']) || parse_url($_SERVER['HTTP_REFERRER'])['host'] != $_SERVER['HTTP_HOST']) &&  $_SERVER['HTTP_HOST'] !== 'localhost'){
         http_response_code(403);
