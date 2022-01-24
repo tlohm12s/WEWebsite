@@ -1,29 +1,29 @@
 async function run() {
 
-    const TYPE_CATEGORY = 0, TYPE_SUBCATEGORY = 1;
+    const TYPE_CATEGORY : number = 0, TYPE_SUBCATEGORY : number = 1;
 
-    let categories = await fetch("/resources/navigator_contents.json").then(response => response.json());
+    let categories : Response = await fetch("/resources/navigator_contents.json").then(response => response.json());
 
-    let category_list = document.getElementById("categories");
-    let subcategory_list = document.getElementById("subcategories");
+    let category_list : HTMLElement = document.getElementById("categories");
+    let subcategory_list : HTMLElement = document.getElementById("subcategories");
 
-    let article_field = document.getElementById("article_field");
-    let content_field = document.getElementById("content");
+    let article_field : HTMLElement = document.getElementById("article_field");
+    let content_field : HTMLElement = document.getElementById("content");
 
-    let information_field = document.getElementById("information");
-    let references_field = document.getElementById("references");
+    let information_field : HTMLElement = document.getElementById("information");
+    let references_field : HTMLElement = document.getElementById("references");
 
     let editmode_toggle : HTMLInputElement = <HTMLInputElement> document.getElementById("editmode_toggle");
 
-    let current_category = Object.keys(categories)[0];
-    let current_subcategory = Object.keys(categories[current_category])[0];
+    let current_category : string = Object.keys(categories)[0];
+    let current_subcategory : string = Object.keys(categories[current_category])[0];
 
     let category_buttons : HTMLInputElement[] = [];
     let subcategory_buttons : HTMLInputElement[] = [];
 
-    let editmodeActivated = false;
+    let editmodeActivated : boolean = false;
 
-    function addCategories() {
+    function addCategories() : void {
         category_list.innerHTML = "";
 
         Object.entries(categories).forEach(entry => {
@@ -39,7 +39,7 @@ async function run() {
         }
     }
 
-    function addEditButton() {
+    function addEditButton() : void {
         let content_edit_button = document.createElement("input");
         content_edit_button.id = "content_edit_button";
         content_edit_button.type = "button";
@@ -58,7 +58,7 @@ async function run() {
         article_field.appendChild(content_edit_button);    
     }
 
-    function addReferenceClearButton() {
+    function addReferenceClearButton() : void {
         let reference_remove_button = document.createElement("input");
         reference_remove_button.id = "reference_clear_button";
         reference_remove_button.type = "button";
@@ -72,7 +72,7 @@ async function run() {
         information_field.appendChild(reference_remove_button);
     }
 
-    function addReferenceCreationButton() {
+    function addReferenceCreationButton() : void {
         let reference_add_button = document.createElement("input");
         reference_add_button.id = "reference_add_button";
         reference_add_button.type = "button";
@@ -87,7 +87,7 @@ async function run() {
         information_field.appendChild(reference_add_button);
     }
 
-    function addSubcategoryRemovalButton() {
+    function addSubcategoryRemovalButton() : void {
         let subcategory_add_button = document.createElement("input");
         subcategory_add_button.id = "subcategory_remove_button";
         subcategory_add_button.type = "button";
@@ -109,7 +109,7 @@ async function run() {
         subcategory_list.appendChild(subcategory_add_button);
     }
 
-    function addSubcategoryCreationButton() {
+    function addSubcategoryCreationButton() : void {
         let subcategory_add_button = document.createElement("input");
         subcategory_add_button.id = "subcategory_add_button";
         subcategory_add_button.type = "button";
@@ -128,7 +128,7 @@ async function run() {
         subcategory_list.appendChild(subcategory_add_button);
     }
 
-    function addCategoryCreationButton() {
+    function addCategoryCreationButton() : void {
         let category_add_button = document.createElement("input");
         category_add_button.id = "category_add_button";
         category_add_button.type = "button";
@@ -149,7 +149,7 @@ async function run() {
         category_list.appendChild(category_add_button);
     }
 
-    function addCategoryRemovalButton() {
+    function addCategoryRemovalButton() : void {
         let category_removal_button = document.createElement("input");
         category_removal_button.id = "category_remove_button";
         category_removal_button.type = "button";
@@ -173,7 +173,7 @@ async function run() {
         category_list.appendChild(category_removal_button);
     }
     
-    function createCategoryElement(title, type) {
+    function createCategoryElement(title, type) : HTMLInputElement {
         let category_element = document.createElement("input");
         category_element.type = "button";
         category_element.value = title;
@@ -210,7 +210,7 @@ async function run() {
         return category_element;
     }
 
-    function updateSubcategories(category) {
+    function updateSubcategories(category) : void {
         subcategory_list.innerHTML = "";
         subcategory_buttons = [];
 
@@ -234,7 +234,7 @@ async function run() {
         }
     }
 
-    function updateSite(category, subcategory = undefined) {
+    function updateSite(category, subcategory = undefined) : void {
         let current_references = "";
 
         if(Object.keys(categories[category]).length !== 0) {
@@ -254,7 +254,7 @@ async function run() {
         references_field.innerHTML =  current_references;
     }
 
-    async function updateContent() {
+    async function updateContent() : Promise<Response> {
         //Aus den Folien
         return fetch(new Request('./www-navigator/server.php'), {
             method: 'POST',
@@ -268,7 +268,7 @@ async function run() {
         });
     }
 
-    async function init() {            
+    async function init() : Promise<void> {            
 
         addCategoryCreationButton();
 
