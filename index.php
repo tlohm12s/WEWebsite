@@ -93,7 +93,7 @@
 
         <link rel="shortcut icon" href="favicon.png">
 
-        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
     </head>
 

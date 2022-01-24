@@ -59,7 +59,7 @@ nav {
     overflow: hidden;
 }
 
-input[type="text"] {
+input[type="text"].search {
     height: 2em;
     padding: 1.2em;
 }
