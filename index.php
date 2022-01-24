@@ -41,8 +41,6 @@
 
             if (isset($_POST['login'])) {
                 $userFound = findUser($username);
-
-                echo var_dump($userFound);
                 
                 if($userFound === null && hash("sha512", $username.$salt) !== $secret_user) {
                    alert('User not found.');
@@ -60,8 +58,6 @@
                 $new_line = hash("sha512", $username.$salt) . "," . hash("sha512", $password.$salt) . "\n";
             
                 $file = file_put_contents( $account_file, $new_line, FILE_APPEND | LOCK_EX );
-
-                echo var_dump(findUser($username));
             
                 if(findUser($username) !== null) {
                     alert("User already exists, choose a new name.");
