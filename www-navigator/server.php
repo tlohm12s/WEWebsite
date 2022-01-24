@@ -4,7 +4,7 @@
     //https://stackoverflow.com/questions/1070153/stop-post-data-from-different-domain-php
     header('X-Frame-Options: Deny');
 
-    if((!isset($_SERVER['HTTP_REFERRER']) || parse_url($_SERVER['HTTP_REFERRER'])['host'] != $_SERVER['HTTP_HOST']) &&  $_SERVER['HTTP_HOST'] !== 'localhost'){
+    if((!isset($_SERVER['HTTP_REFERER']) || parse_url($_SERVER['HTTP_REFERER'])['host'] != $_SERVER['HTTP_HOST']) &&  $_SERVER['HTTP_HOST'] !== 'localhost'){
         http_response_code(403);
         exit("Not allowed - Unknown host request! ");
     }
@@ -16,7 +16,7 @@
 
             $token = isset($_SESSION['csrf']) ? $_SESSION['csrf'] : "";
             if ($token && $_SERVER['HTTP_CSRF_TOKEN'] === $token) {
-                $result = file_put_contents('../resources/navigator_contents.json', $raw_data); 
+                $result = file_put_contents('../resources/navigator_scontents.json', $raw_data); 
                 unset($_SESSION['csrf']);
             } else {
                 http_response_code(403);

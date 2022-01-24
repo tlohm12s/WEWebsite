@@ -323,6 +323,7 @@ function run() {
                     //Aus den Folien
                     return [2 /*return*/, fetch(new Request('www-navigator/server.php'), {
                             method: 'POST',
+                            referrerPolicy: 'strict-origin',
                             mode: 'cors',
                             cache: 'no-store',
                             body: JSON.stringify(categories),
