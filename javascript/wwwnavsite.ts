@@ -2,7 +2,7 @@ async function run() {
 
     const TYPE_CATEGORY : number = 0, TYPE_SUBCATEGORY : number = 1;
 
-    let categories : Response = await fetch("../resources/navigator_contents.json").then(response => response.json());
+    let categories : Response = await fetch("resources/navigator_contents.json").then(response => response.json());
 
     let category_list : HTMLElement = document.getElementById("categories");
     let subcategory_list : HTMLElement = document.getElementById("subcategories");
@@ -256,7 +256,7 @@ async function run() {
 
     async function updateContent() : Promise<Response> {
         //Aus den Folien
-        return fetch(new Request('./www-navigator/server.php'), {
+        return fetch(new Request('www-navigator/server.php'), {
             method: 'POST',
             mode: 'cors',
             cache: 'no-store',

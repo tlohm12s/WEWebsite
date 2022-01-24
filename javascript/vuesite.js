@@ -24,7 +24,7 @@ var app = new Vue({
         searchterm: ''
     },
     created: async function() {
-        await fetch("../resources/links.json").then(response => response.json()).then(result => {
+        await fetch("resources/links.json").then(response => response.json()).then(result => {
             this.navitems = result;
             this.filteredItems = JSON.parse(JSON.stringify(this.navitems));
         });

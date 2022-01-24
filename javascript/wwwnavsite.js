@@ -321,7 +321,7 @@ function run() {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     //Aus den Folien
-                    return [2 /*return*/, fetch(new Request('./www-navigator/server.php'), {
+                    return [2 /*return*/, fetch(new Request('www-navigator/server.php'), {
                             method: 'POST',
                             mode: 'cors',
                             cache: 'no-store',
@@ -374,7 +374,7 @@ function run() {
             switch (_a.label) {
                 case 0:
                     TYPE_CATEGORY = 0, TYPE_SUBCATEGORY = 1;
-                    return [4 /*yield*/, fetch("/resources/navigator_contents.json").then(function (response) { return response.json(); })];
+                    return [4 /*yield*/, fetch("resources/navigator_contents.json").then(function (response) { return response.json(); })];
                 case 1:
                     categories = _a.sent();
                     category_list = document.getElementById("categories");

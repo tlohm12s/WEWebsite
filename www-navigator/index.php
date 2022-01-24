@@ -7,7 +7,7 @@
     }
 
 ?>
-<script src="/javascript/wwwnavsite.js"> </script>
+<script src="javascript/wwwnavsite.js"> </script>
 
 <style>
     nav {

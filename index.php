@@ -1,5 +1,6 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
 <?php 
-    session_start();
 
     $salt = "^3)xqQku)L'3`dpQ";
 
@@ -73,12 +74,11 @@
     }
 
     if($_SESSION['privileges']) {
-      echo "<script>window.onload = function(){document.getElementById('editmode_toggle').disabled = false; document.getElementById('login').disabled = true; document.getElementById('login').value = 'Logged in';}; </script>";
+      echo "<script>window.onload = function(){document.getElementById('editmode_toggle').disabled = false;}; </script>";
     }
 
 ?>
 
-<!DOCTYPE html>
 <html>
 
     <head>
