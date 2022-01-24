@@ -1,6 +1,7 @@
 <section>
     <div class="center">
         
+        <input id="searchbar" placeholder="Suchen" style="float: left; margin-top: 25px">
         <h1 style="background-color: steelblue; margin: auto; border-radius: 1em; padding: 0.5em; text-align: center; width: fit-content;"> <u>Best contents</u> </h1>
 
         <nav id="app">
