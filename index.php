@@ -1,6 +1,14 @@
 <?php 
-
     session_start();
+
+    //https://stackoverflow.com/questions/1070153/stop-post-data-from-different-domain-php
+    header('X-Frame-Options: Deny');
+
+    if( !isset($_SERVER['HTTP_REFERRER']) || parse_url($_SERVER['HTTP_REFERRER'])['host'] != $_SERVER['HTTP_HOST'] ){
+        exit("Not allowed - Unknown host request! ");
+    }
+    //
+
     $salt = "^3)xqQku)L'3`dpQ";
 
     //Sha512 secretuser test
