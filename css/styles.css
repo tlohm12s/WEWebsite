@@ -59,6 +59,11 @@ nav {
     overflow: hidden;
 }
 
+input[type="text"] {
+    height: 2em;
+    padding: 1.2em;
+}
+
 input[type="button"] {
     min-width: fit-content;
     width: 6%;
@@ -98,6 +103,7 @@ iframe {
     margin: auto;
     margin-top: 2%;
     width: 90%;
+    text-align: center; 
 }
 
 .log-out {
