@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "strict": true,
+      "module": "es2020",
+      "strictNullChecks": false,
+      "noImplicitAny": false
+    },
+    "files": [
+      "wwwnavsite.ts", "general.ts"
+    ]
+  }
