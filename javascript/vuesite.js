@@ -16,6 +16,12 @@ Vue.component('nav-item', {
     `
 });
 
+Vue.component('searchbar', {
+    template: `
+        <input id="searchbar" type="text" class="search" placeholder="Suchen" style="position: absolute; left: 100%; top: 50%; transform: translate(-50%, -50%);">
+    `
+});
+
 var app = new Vue({
     el: '#app',
     data: {
