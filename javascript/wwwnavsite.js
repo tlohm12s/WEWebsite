@@ -53,8 +53,8 @@ function run() {
             var content_edit_button = document.createElement("input");
             content_edit_button.id = "content_edit_button";
             content_edit_button.type = "button";
-            content_edit_button.value = "<Edit>",
-                content_edit_button.onclick = function () {
+            (content_edit_button.value = "<Edit>"),
+                (content_edit_button.onclick = function () {
                     return __awaiter(this, void 0, void 0, function () {
                         var new_content;
                         return __generator(this, function (_a) {
@@ -62,7 +62,7 @@ function run() {
                                 case 0:
                                     new_content = prompt("Enter the new content:", content_field.textContent);
                                     if (!(categories[current_category][current_subcategory] !== undefined)) return [3 /*break*/, 2];
-                                    categories[current_category][current_subcategory]['content'] = new_content;
+                                    categories[current_category][current_subcategory]["content"] = new_content;
                                     return [4 /*yield*/, updateContent()];
                                 case 1:
                                     _a.sent();
@@ -75,7 +75,7 @@ function run() {
                             }
                         });
                     });
-                };
+                });
             article_field.appendChild(content_edit_button);
         }
         function addReferenceClearButton() {
@@ -89,7 +89,7 @@ function run() {
                     return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
-                                categories[current_category][current_subcategory]['references'] = [];
+                                categories[current_category][current_subcategory]["references"] = [];
                                 references_field.innerHTML = "";
                                 return [4 /*yield*/, updateContent()];
                             case 1:
@@ -114,7 +114,7 @@ function run() {
                         switch (_a.label) {
                             case 0:
                                 name = prompt("Enter a new reference.");
-                                categories[current_category][current_subcategory]['references'].push(name);
+                                categories[current_category][current_subcategory]["references"].push(name);
                                 return [4 /*yield*/, updateContent()];
                             case 1:
                                 _a.sent();
@@ -145,7 +145,6 @@ function run() {
                                 else {
                                     alert("Entered subcategory does not exist.");
                                 }
-                                ;
                                 current_subcategory = Object.keys(categories[current_category])[0];
                                 return [4 /*yield*/, updateContent()];
                             case 1:
@@ -174,8 +173,8 @@ function run() {
                             case 0:
                                 name = prompt("Enter a new subcategory name.");
                                 categories[current_category][name] = {};
-                                categories[current_category][name]['references'] = [];
-                                categories[current_category][name]['content'] = "";
+                                categories[current_category][name]["references"] = [];
+                                categories[current_category][name]["content"] = "";
                                 return [4 /*yield*/, updateContent()];
                             case 1:
                                 _a.sent();
@@ -192,8 +191,8 @@ function run() {
             var category_add_button = document.createElement("input");
             category_add_button.id = "category_add_button";
             category_add_button.type = "button";
-            category_add_button.value = "<Add Category>",
-                category_add_button.style.color = "green";
+            (category_add_button.value = "<Add Category>"),
+                (category_add_button.style.color = "green");
             category_add_button.onclick = function () {
                 return __awaiter(this, void 0, void 0, function () {
                     var name;
@@ -221,8 +220,8 @@ function run() {
             category_removal_button.id = "category_remove_button";
             category_removal_button.type = "button";
             category_removal_button.style.color = "red";
-            category_removal_button.value = "<Remove Category>",
-                category_removal_button.onclick = function () {
+            (category_removal_button.value = "<Remove Category>"),
+                (category_removal_button.onclick = function () {
                     return __awaiter(this, void 0, void 0, function () {
                         var name;
                         return __generator(this, function (_a) {
@@ -235,7 +234,6 @@ function run() {
                                     else {
                                         alert("Entered category does not exist.");
                                     }
-                                    ;
                                     current_category = Object.keys(categories)[0];
                                     current_subcategory = Object.keys(categories[current_category])[0];
                                     return [4 /*yield*/, updateContent()];
@@ -248,7 +246,7 @@ function run() {
                             }
                         });
                     });
-                };
+                });
             category_list.appendChild(category_removal_button);
         }
         function createCategoryElement(title, type) {
@@ -305,12 +303,13 @@ function run() {
             if (Object.keys(categories[category]).length !== 0) {
                 if (subcategory == undefined)
                     subcategory = Object.keys(categories[category])[0];
-                if (categories[category][subcategory]['references'] !== undefined) {
-                    categories[category][subcategory]['references'].forEach(function (reference) {
-                        current_references += "<li><a href='" + reference + "'>" + reference + "</a> </li>\n";
+                if (categories[category][subcategory]["references"] !== undefined) {
+                    categories[category][subcategory]["references"].forEach(function (reference) {
+                        current_references +=
+                            "<li><a href='" + reference + "'>" + reference + "</a> </li>\n";
                     });
                 }
-                content_field.textContent = categories[category][subcategory]['content'];
+                content_field.textContent = categories[category][subcategory]["content"];
             }
             else {
                 content_field.textContent = "";
@@ -320,16 +319,16 @@ function run() {
         function updateContent() {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    //Aus den Folien
-                    return [2 /*return*/, fetch(new Request('www-navigator/server.php'), {
-                            method: 'POST',
-                            referrerPolicy: 'strict-origin',
-                            mode: 'cors',
-                            cache: 'no-store',
+                    //Teilweise aus der Vorlesung
+                    return [2 /*return*/, fetch(new Request("www-navigator/server.php"), {
+                            method: "POST",
+                            referrerPolicy: "strict-origin",
+                            mode: "cors",
+                            cache: "no-store",
                             body: JSON.stringify(categories),
                             headers: {
-                                'Content-Type': 'application/json',
-                                'CSRF-TOKEN': document.getElementById('token').value
+                                "Content-Type": "application/json",
+                                "CSRF-TOKEN": document.getElementById("token").value
                             }
                         })];
                 });
@@ -384,7 +383,7 @@ function run() {
                     content_field = document.getElementById("content");
                     information_field = document.getElementById("information");
                     references_field = document.getElementById("references");
-                    editmode_toggle = document.getElementById("editmode_toggle");
+                    editmode_toggle = (document.getElementById("editmode_toggle"));
                     current_category = Object.keys(categories)[0];
                     current_subcategory = Object.keys(categories[current_category])[0];
                     category_buttons = [];

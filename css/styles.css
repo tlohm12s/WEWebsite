@@ -182,8 +182,8 @@ iframe {
 /* Animation */
 
 @keyframes animation1 {
-    0%   {width: 35}
-    99%  {width: 200}
+    0%   {width: 35px}
+    99%  {width: 200px}
     100%  {visibility: hidden;}
  }
 
