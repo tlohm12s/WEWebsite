@@ -20,7 +20,6 @@
             $token = isset($_SESSION['csrf']) ? $_SESSION['csrf'] : "";
             if ($token && $_SERVER['HTTP_CSRF_TOKEN'] === $token) {
                 $result = file_put_contents('../resources/navigator_contents.json', $raw_data); 
-                unset($_SESSION['csrf']);
             } else {
                 http_response_code(403);
                 exit("Not a valid token.");
