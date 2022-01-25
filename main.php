@@ -12,7 +12,7 @@
             </g>
         </svg>
       
-        <h1 style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; background-color: steelblue; border-radius: 1em; padding: 0.5em; width: fit-content;"> <u>Best contents</u> </h1>
+        <h1 style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; background-color: steelblue; border-radius: 1em; padding: 0.5em; width: fit-content;"> <u>Solution Navigator</u> </h1>
     </div>
 
     <nav>
