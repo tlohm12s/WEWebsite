@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    if($_GET['action'] == 'logout') {
+        session_destroy();
+
+        header("Location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <?php 
 
@@ -34,12 +41,6 @@
         //
 
         return null;
-    }
-
-    if($_GET['action'] == 'logout') {
-        session_destroy();
-
-        header("Location: index.php");
     }
 
     //Teileweise aus der Vorlesung
