@@ -21,3 +21,9 @@ function addf(a) {
 function applyf(func) {
     return function(a) {return function(b){ return func(a,b);}};
 }
+
+console.log(identity(1));
+console.log(identity_function(2)());
+
+console.log(addf(1)(2));
+console.log(applyf(mul)(2)(2));

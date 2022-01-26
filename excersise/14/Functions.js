@@ -103,7 +103,37 @@ function revocable(func) {
     }();
 }
 
+console.log(identity_function(1)());
+console.log(applyf(add)(1)(1));
+console.log(curry(add,1)(2));
+console.log(inc(3));
+console.log(inc2(4));
+console.log(inc3(5));
+console.log(double(4));
+console.log(composeu(add, mul)(5));
+console.log(composeb(add, mul)(5));
+
+let v = vector();
+v.append(100);
+console.log(v.get(0));
 
 Number.prototype.add = methodize(add);
 
 console.log(demethodize(Number.prototype.add)(1,2));
+
+try { 
+    let oncef = once(add);
+    console.log(oncef(7, 7));
+    oncef(1,2);
+} catch (e) {
+    console.log(e);
+}
+
+try { 
+    let a = revocable(mul);
+    console.log(a.invoke(3,3));
+    console.log(a.revoke());
+    console.log(a.invoke(3,3));
+} catch (e) {
+    console.log(e);
+}
