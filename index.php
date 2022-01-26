@@ -66,16 +66,19 @@
                 }
             } else if(isset($_POST['register'])) {
                 $new_line = hash("sha512", $username.$salt) . "," . hash("sha512", $password.$salt) . "\n";
-            
-                $file = file_put_contents( $account_file, $new_line, FILE_APPEND | LOCK_EX );
-            
+                
                 if(findUser($username) !== null) {
                     alert("User already exists, choose a new name.");
-                } else if ($file) {
-                    alert('Registered successfully!');
                 } else {
-                    alert('Registration failed. Error: ' . var_dump($file));
+                    $file = file_put_contents( $account_file, $new_line, FILE_APPEND | LOCK_EX );
+                
+                    if ($file) {
+                        alert('Registered successfully!');
+                    } else {
+                        alert('Registration failed. Error: ' . var_dump($file));
+                    }
                 }
+                
             }
         } else {
             alert('Please enter a username and password!');
