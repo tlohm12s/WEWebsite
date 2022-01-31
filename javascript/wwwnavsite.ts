@@ -274,7 +274,7 @@ async function run() {
     }
   
     async function updateContent(): Promise<Response> {
-      //Teilweise aus der Vorlesung
+      //Teilweise aus der Vorlesung Async
       return fetch(new Request("www-navigator/server.php"), {
         method: "POST",
         referrerPolicy: "strict-origin",

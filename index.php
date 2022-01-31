@@ -32,7 +32,7 @@
 
         $fileHandle = fopen($account_file, "r");
 
-        //Aus der Vorlesung
+        //Aus der Vorlesung PHP
         while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
             if (hash("sha512", $username.$salt) === $row[0]) {
                 return $row;
@@ -43,7 +43,7 @@
         return null;
     }
 
-    //Teileweise aus der Vorlesung
+    //Teileweise aus der Vorlesung PHP
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $username = $_POST['username'];
@@ -118,9 +118,7 @@
             <a class="wwwnav-link" id="wwwnav_leave" href="index.php"> Hier geht es zurück zur Homepage </a>
         </header>
 
-        <?php 
-        //include_once('main.php');
-        
+        <?php         
 
             if(!$_SESSION['loggedin']) {
                 if($_GET['action'] == 'register') {

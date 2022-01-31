@@ -2,6 +2,7 @@
 
 <?php 
 
+ //Teilweise Aus der Vorlesung PHP
   if(!empty($_POST['username']) && !empty($_POST['password']) && isset($_POST['enter'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

@@ -2,7 +2,7 @@
     session_start();
     $accounttoken = "otbMNB38";
 
-    //Aus den Folien
+    //Aus den Folien PHP
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($_SESSION['token'] === $accounttoken) {
             $raw_data = file_get_contents('php://input');
